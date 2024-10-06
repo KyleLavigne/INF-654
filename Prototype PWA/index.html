@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Travel Planner</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo left"><img src="img/travel_planner_logo.png" alt="Travel Planner Logo"></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+                <img src="img/hamburger.png" alt="Menu" style="height: 40px; width: auto;"> <!-- Hamburger image -->
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="itinerary.html">Itinerary</a></li>
+                <li><a href="packing-list.html">Packing List</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="itinerary.html">Itinerary</a></li>
+        <li><a href="packing-list.html">Packing List</a></li>
+        <li><a href="map.html">Map</a></li>
+    </ul>
+
+    <div class="container">
+        <h1 class="center-align">Welcome to the Travel Planner!</h1>
+        <p class="flow-text center-align">This application helps you plan your trips effectively. Organize your destinations, packing lists, and navigate with ease.</p>
+        <div class="row">
+            <div class="col s12 display-card">
+                <a href="itinerary.html" class="nav-link">
+                    <div class="card horizontal">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="img/itinerary.jpg" alt="Itinerary Image">
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title">Get Started</span>
+                            <p>Plan your itinerary by adding your destinations.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 display-card">
+                <a href="packing-list.html" class="nav-link">
+                    <div class="card horizontal">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="img/list.jpg" alt="Packing List Image">
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title">Packing List</span>
+                            <p>Keep track of what to pack for your trip.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 display-card">
+                <a href="map.html" class="nav-link">
+                    <div class="card horizontal">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="img/map.jpg" alt="Map Image" class="map-image">
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title">Map</span>
+                            <p>Navigate your trip with our interactive map feature.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Initialize Sidenav
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
+</body>
+</html>

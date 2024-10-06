@@ -1,0 +1,94 @@
+/* Define CSS variables for the color palette */
+:root {
+    --black: #090909ff;
+    --ebony: #4b5043ff;
+    --cambridge-blue: #9bc4bcff;
+    --nyanza: #d3ffe9ff;
+    --tiffany-blue: #8ddbe0ff;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--nyanza); /* Set a light background color */
+    color: var(--black); /* Dark text color */
+    margin: 0; /* Reset default margin */
+}
+
+h1 {
+    margin-top: 30px;
+    color: var(--black); /* Dark color for headings */
+}
+
+/* Navbar Styles */
+.nav-wrapper {
+    background-color: var(--cambridge-blue); /* Navbar color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.brand-logo img {
+    height: 64px; /* Set the logo height to match the navbar height */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure it doesn’t exceed the width of its container */
+}
+
+.nav-mobile {
+    display: flex; /* Aligns nav items horizontally */
+    align-items: center; /* Centers nav items vertically */
+}
+
+.nav-wrapper a {
+    color: var(--black); /* Navbar link color */
+    display: flex; /* Ensures that link items are treated as flex items */
+    align-items: center; /* Vertically centers text in the links */
+}
+
+.nav-wrapper a:hover {
+    color: var(--tiffany-blue); /* Change link color on hover */
+}
+
+/* Card Styles */
+.nav-link {
+    display: block; /* Make the anchor tag a block element */
+    padding: 15px; /* Add padding around the link */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.card {
+    min-height: 150px; /* Ensure cards have a minimum height */
+    background-color: var(--tiffany-blue); /* Card background color */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly scale the card on hover */
+}
+
+.card-content {
+    padding: 20px; /* Space inside cards */
+}
+
+.card-title {
+    margin: 0; /* Remove margin for better alignment */
+    color: var(--black); /* Set card title color */
+}
+
+.card-image img {
+    width: 100%; /* Make the image full width of the card */
+    height: auto; /* Keep the aspect ratio */
+}
+
+.container {
+    margin-top: 30px; /* Space above the container */
+}
+
+.card-content p {
+    color: var(--ebony); /* Change text color to ebony */
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .brand-logo img {
+        height: 50px; /* Adjust height for mobile devices */
+    }
+}

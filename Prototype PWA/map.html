@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Map</title>
+    <style>
+        /* Add some basic styles for the placeholder map */
+        .placeholder-map {
+            height: 400px; /* Set a fixed height for the placeholder */
+            width: 100%; /* Full width */
+            background-image: url('img/map.jpg'); /* Placeholder image */
+            background-size: cover; /* Cover the area */
+            background-position: center; /* Center the image */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            color: white; /* Text color */
+            font-size: 24px; /* Font size for caption */
+            font-weight: bold; /* Bold text for caption */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better visibility */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo left"><img src="img/travel_planner_logo.png" alt="Travel Planner Logo"></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+                <img src="img/hamburger.png" alt="Menu" style="height: 40px; width: auto;"> <!-- Hamburger image -->
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="itinerary.html">Itinerary</a></li>
+                <li><a href="packing-list.html">Packing List</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2 class="center-align">Map View</h2>
+        <p class="flow-text center-align">Integration with a map service will go here.</p>
+        <div class="placeholder-map">
+            <span>This map will be implemented later</span> <!-- Caption for placeholder -->
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

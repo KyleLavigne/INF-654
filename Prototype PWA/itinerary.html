@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Itinerary</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo left"><img src="img/travel_planner_logo.png" alt="Travel Planner Logo"></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+                <img src="img/hamburger.png" alt="Menu" style="height: 40px; width: auto;"> <!-- Hamburger image -->
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="itinerary.html">Itinerary</a></li>
+                <li><a href="packing-list.html">Packing List</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="center-align">Create Your Itinerary</h2>
+        <div class="row">
+            <div class="input-field col s12 m8 offset-m2">
+                <input type="text" id="destinationInput" class="validate" placeholder="Enter Destination">
+            </div>
+            <div class="col s12 m4">
+                <button class="btn blue darken-2" onclick="addDestination()">Add Destination</button>
+            </div>
+        </div>
+        <h3>Destinations:</h3>
+        <ul id="destinationList" class="collection"></ul>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
