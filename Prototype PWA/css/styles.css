@@ -4,7 +4,7 @@
     --ebony: #4b5043ff;
     --cambridge-blue: #9bc4bcff;
     --nyanza: #d3ffe9ff;
-    --tiffany-blue: #8ddbe0ff;
+    --tiffany-blue: #FFD3E9;
 }
 
 /* General Styles */
@@ -54,37 +54,57 @@ h1 {
     text-decoration: none; /* Remove underline from links */
 }
 
-.card {
-    min-height: 150px; /* Ensure cards have a minimum height */
-    background-color: var(--tiffany-blue); /* Card background color */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+/* Card Styles */
+.card.horizontal {
+    display: flex; /* Use flex to align items in a row */
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--tiffany-blue);
+    transition: transform 0.3s ease;
+    min-height: 150px; /* Ensure a consistent minimum height */
 }
 
 .card:hover {
-    transform: scale(1.05); /* Slightly scale the card on hover */
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
 }
 
-.card-content {
-    padding: 20px; /* Space inside cards */
-}
-
-.card-title {
-    margin: 0; /* Remove margin for better alignment */
-    color: var(--black); /* Set card title color */
+/* Image Styling for Half Width on Left */
+.card-image {
+    width: 50%; /* Take up half the card's width */
+    height: 100%; /* Make sure image fills card height */
+    overflow: hidden; /* Crop any overflow to keep a consistent layout */
 }
 
 .card-image img {
-    width: 100%; /* Make the image full width of the card */
-    height: auto; /* Keep the aspect ratio */
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Keep the image filling the height as well */
+    object-fit: cover; /* Cover the container without distortion */
 }
 
-.container {
-    margin-top: 30px; /* Space above the container */
+/* Card Content Styling */
+.card-content {
+    width: 50%; /* Take up the other half of the card */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-title {
+    margin: 0;
+    color: var(--black);
+    font-size: 3.0rem;
+    font-weight: bold;
 }
 
 .card-content p {
-    color: var(--ebony); /* Change text color to ebony */
+    margin-top: 10px;
+    color: var(--ebony);
+    font-size: 1rem;
 }
+
 
 /* Responsive adjustments */
 @media only screen and (max-width: 600px) {
