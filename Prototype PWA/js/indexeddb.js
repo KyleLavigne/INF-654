@@ -1,13 +1,28 @@
-const DB_NAME = "TravelPlannerDB";
-const DB_VERSION = 2;
+let currentUserId = null; // Holds the user ID for the current session
+
+export function setCurrentUserId(userId) {
+  currentUserId = userId;
+}
+
+const DB_VERSION = 3; // Incremented version to add the offline queue store
 export const STORE_NAMES = {
   ITINERARY: "Itinerary",
   PACKING: "PackingList",
+  OFFLINE_QUEUE: "OfflineQueue", // Added offline queue store
 };
 
+function getDbName() {
+  if (!currentUserId) {
+    throw new Error("User ID is not set. Call setCurrentUserId(userId) before accessing IndexedDB.");
+  }
+  return `TravelPlannerDB_${currentUserId}`;
+}
+
+// Open IndexedDB for the current user
 export function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    const dbName = getDbName();
+    const request = indexedDB.open(dbName, DB_VERSION);
 
     request.onupgradeneeded = (event) => {
       const db = event.target.result;
@@ -23,13 +38,18 @@ export function openDB() {
         db.createObjectStore(STORE_NAMES.PACKING, { keyPath: "id", autoIncrement: true });
         console.log("PackingList store created");
       }
+
+      // Create OfflineQueue store if it doesn't exist
+      if (!db.objectStoreNames.contains(STORE_NAMES.OFFLINE_QUEUE)) {
+        db.createObjectStore(STORE_NAMES.OFFLINE_QUEUE, { keyPath: "id", autoIncrement: true });
+        console.log("OfflineQueue store created");
+      }
     };
 
     request.onsuccess = (event) => resolve(event.target.result);
     request.onerror = (event) => reject(event.target.error);
   });
 }
-
 
 // Retrieve all destinations from IndexedDB
 export async function getDestinationsFromIndexedDB() {
@@ -92,6 +112,51 @@ export async function savePackingItemToIndexedDB(item) {
   const store = tx.objectStore(STORE_NAMES.PACKING);
   return new Promise((resolve, reject) => {
     const request = store.put(item);
+    request.onsuccess = () => resolve();
+    request.onerror = (event) => reject(event.target.error);
+  });
+}
+
+// Add an action to the offline queue
+export async function addToOfflineQueue(action) {
+  const db = await openDB();
+  const tx = db.transaction(STORE_NAMES.OFFLINE_QUEUE, "readwrite");
+  const store = tx.objectStore(STORE_NAMES.OFFLINE_QUEUE);
+  return new Promise((resolve, reject) => {
+    const request = store.add(action);
+    request.onsuccess = () => resolve();
+    request.onerror = (event) => reject(event.target.error);
+  });
+}
+
+// Retrieve all actions from the offline queue
+export async function getOfflineQueue() {
+  const db = await openDB();
+  const tx = db.transaction(STORE_NAMES.OFFLINE_QUEUE, "readonly");
+  const store = tx.objectStore(STORE_NAMES.OFFLINE_QUEUE);
+  const queue = [];
+  return new Promise((resolve, reject) => {
+    const request = store.openCursor();
+    request.onsuccess = (event) => {
+      const cursor = event.target.result;
+      if (cursor) {
+        queue.push({ id: cursor.key, ...cursor.value });
+        cursor.continue();
+      } else {
+        resolve(queue);
+      }
+    };
+    request.onerror = (event) => reject(event.target.error);
+  });
+}
+
+// Remove an action from the offline queue
+export async function removeFromOfflineQueue(id) {
+  const db = await openDB();
+  const tx = db.transaction(STORE_NAMES.OFFLINE_QUEUE, "readwrite");
+  const store = tx.objectStore(STORE_NAMES.OFFLINE_QUEUE);
+  return new Promise((resolve, reject) => {
+    const request = store.delete(id);
     request.onsuccess = () => resolve();
     request.onerror = (event) => reject(event.target.error);
   });

@@ -2,10 +2,11 @@
     "name": "Travel Planner",
     "short_name": "Travel",
     "description": "Plan your trips effectively with the Travel Planner app.",
-    "start_url": "/index.html",
+    "start_url": "/Prototype%20PWA/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#4caf50",
+    "scope": "/",
     "icons": [
         {
           "src": "img/travel_planner_logo.png",
