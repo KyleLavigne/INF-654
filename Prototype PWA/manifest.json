@@ -5,33 +5,13 @@
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#3f51b5",
+    "theme_color": "#4caf50",
     "icons": [
-      {
-        "src": "img/hamburger.png",
-        "sizes": "768x768",
-        "type": "image/png"
-      },
-      {
-        "src": "img/travel_planner_logo.png",
-        "sizes": "1024x1024",
-        "type": "image/png"
-      },
-      {
-        "src": "img/itinerary.jpg",
-        "sizes": "612x408",
-        "type": "image/jpg"
-      },
-      {
-        "src": "img/list.jpg",
-        "sizes": "527x360",
-        "type": "image/jpg"
-      },
-      {
-        "src": "img/map.jpg",
-        "sizes": "4608x3072",
-        "type": "image/jpg"
-      }
+        {
+          "src": "img/travel_planner_logo.png",
+          "sizes": "1024x1024",
+          "type": "image/png"
+        }
     ]
   }
   

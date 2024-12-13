@@ -1,53 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>Maps and Places Autocomplete</title>
+    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="manifest" href="manifest.json">
-    <title>Map</title>
-    <style>
-        /* Add some basic styles for the placeholder map */
-        .placeholder-map {
-            height: 400px; /* Set a fixed height for the placeholder */
-            width: 100%; /* Full width */
-            background-image: url('img/map.jpg'); /* Placeholder image */
-            background-size: cover; /* Cover the area */
-            background-position: center; /* Center the image */
-            display: flex;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            color: white; /* Text color */
-            font-size: 24px; /* Font size for caption */
-            font-weight: bold; /* Bold text for caption */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better visibility */
-        }
-    </style>
-</head>
-<body>
-    <nav>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/map.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="teal">
+      <div class="container">
         <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo left"><img src="img/travel_planner_logo.png" alt="Travel Planner Logo"></a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
-                <img src="img/hamburger.png" alt="Menu" style="height: 40px; width: auto;"> <!-- Hamburger image -->
-            </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="itinerary.html">Itinerary</a></li>
-                <li><a href="packing-list.html">Packing List</a></li>
-                <li><a href="map.html">Map</a></li>
-            </ul>
+          <a href="index.html" class="brand-logo">Travel Planner</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="itinerary.html">Itinerary</a></li>
+            <li><a href="packing.html">Packing List</a></li>
+            <li><a href="map.html">Map</a></li>
+          </ul>
         </div>
+      </div>
     </nav>
-    
-    <div class="container">
-        <h2 class="center-align">Map View</h2>
-        <p class="flow-text center-align">Integration with a map service will go here.</p>
-        <div class="placeholder-map">
-            <span>This map will be implemented later</span>
+  
+    <!-- Sidenav -->
+    <ul class="sidenav" id="mobile-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="itinerary.html">Itinerary</a></li>
+      <li><a href="packing.html">Packing List</a></li>
+      <li><a href="map.html">Map</a></li>
+    </ul>
+
+    <gmpx-api-loader key="AIzaSyCVxdxZzQoWQhSjF8b7qylrnadrMV2m1v4" solution-channel="GMP_GE_mapsandplacesautocomplete_v1">
+    </gmpx-api-loader>
+    <gmp-map center="40.749933,-73.98633" zoom="13" map-id="ff30ed87075d8278">
+      <div slot="control-block-start-inline-start" class="place-picker-container">
+        <gmpx-place-picker placeholder="Enter an address"></gmpx-place-picker>
+      </div>
+      <gmp-advanced-marker></gmp-advanced-marker>
+    </gmp-map>
+    <script src="./index.js"></script>
+
+    <footer class="page-footer teal">
+      <div class="container">
+        <div class="row">
+          <!-- About Section -->
+          <div class="col s12 m6">
+            <h5 class="white-text">About Travel Planner</h5>
+            <p class="grey-text text-lighten-4">
+              Your ultimate tool for planning trips, organizing packing lists, and exploring destinations with ease.
+            </p>
+          </div>
+          <!-- Links Section -->
+          <div class="col s12 m4 offset-m2">
+            <h5 class="white-text">Quick Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="itinerary.html">Itinerary</a></li>
+              <li><a class="grey-text text-lighten-3" href="packing.html">Packing List</a></li>
+              <li><a class="grey-text text-lighten-3" href="map.html">Map</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
-    
-    <script src="js/script.js"></script>
-</body>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2024 Travel Planner
+          <a class="grey-text text-lighten-4 right" href="#!">Terms & Privacy</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

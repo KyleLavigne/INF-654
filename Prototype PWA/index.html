@@ -1,87 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="manifest" href="manifest.json">
-    <title>Travel Planner</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Planner</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo left"><img src="img/travel_planner_logo.png" alt="Travel Planner Logo"></a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
-                <img src="img/hamburger.png" alt="Menu" style="height: 40px; width: auto;"> <!-- Hamburger image -->
-            </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="itinerary.html">Itinerary</a></li>
-                <li><a href="packing-list.html">Packing List</a></li>
-                <li><a href="map.html">Map</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation -->
-    <ul class="sidenav" id="mobile-nav">
-        <li><a href="itinerary.html">Itinerary</a></li>
-        <li><a href="packing-list.html">Packing List</a></li>
-        <li><a href="map.html">Map</a></li>
-    </ul>
-
+  <!-- Navbar -->
+  <nav class="teal">
     <div class="container">
-        <h1 class="center-align">Welcome to the Travel Planner!</h1>
-        <p class="flow-text center-align">This application helps you plan your trips effectively. Organize your destinations, packing lists, and navigate with ease.</p>
-        <div class="row">
-            <div class="col s12 display-card">
-                <a href="itinerary.html" class="nav-link">
-                    <div class="card horizontal">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img src="img/itinerary.jpg" alt="Itinerary Image">
-                        </div>
-                        <div class="card-content white-text">
-                            <span class="card-title">Get Started</span>
-                            <p>Plan your itinerary by adding your destinations.</p>
-                        </div>
-                    </div>
-                </a>
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Travel Planner</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="itinerary.html">Itinerary</a></li>
+          <li><a href="packing.html">Packing List</a></li>
+          <li><a href="map.html">Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidenav -->
+  <ul class="sidenav" id="mobile-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="itinerary.html">Itinerary</a></li>
+    <li><a href="packing.html">Packing List</a></li>
+    <li><a href="map.html">Map</a></li>
+  </ul>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Welcome to Travel Planner</h1>
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col s12">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="img/itinerary.jpg" alt="Itinerary">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Itinerary</h5>
+              <p>Plan your trip destinations and activities.</p>
             </div>
-            <div class="col s12 display-card">
-                <a href="packing-list.html" class="nav-link">
-                    <div class="card horizontal">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img src="img/list.jpg" alt="Packing List Image">
-                        </div>
-                        <div class="card-content white-text">
-                            <span class="card-title">Packing List</span>
-                            <p>Keep track of what to pack for your trip.</p>
-                        </div>
-                    </div>
-                </a>
+            <div class="card-action">
+              <a href="itinerary.html">Go to Itinerary</a>
             </div>
-            <div class="col s12 display-card">
-                <a href="map.html" class="nav-link">
-                    <div class="card horizontal">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img src="img/map.jpg" alt="Map Image" class="map-image">
-                        </div>
-                        <div class="card-content white-text">
-                            <span class="card-title">Map</span>
-                            <p>Navigate your trip with our interactive map feature.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+          </div>
         </div>
-    </div>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        // Initialize Sidenav
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
-    </script>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col s12">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="img/list.jpg" alt="Packing List">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Packing List</h5>
+              <p>Organize your packing for the trip.</p>
+            </div>
+            <div class="card-action">
+              <a href="packing.html">Go to Packing List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col s12">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="img/map.jpg" alt="Map">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Map</h5>
+              <p>Explore destinations with Google Maps.</p>
+            </div>
+            <div class="card-action">
+              <a href="map.html">Go to Map</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <!-- About Section -->
+      <div class="col s12 m6">
+        <h5 class="white-text">About Travel Planner</h5>
+        <p class="grey-text text-lighten-4">
+          Your ultimate tool for planning trips, organizing packing lists, and exploring destinations with ease.
+        </p>
+      </div>
+      <!-- Links Section -->
+      <div class="col s12 m4 offset-m2">
+        <h5 class="white-text">Quick Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+          <li><a class="grey-text text-lighten-3" href="itinerary.html">Itinerary</a></li>
+          <li><a class="grey-text text-lighten-3" href="packing.html">Packing List</a></li>
+          <li><a class="grey-text text-lighten-3" href="map.html">Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2024 Travel Planner
+      <a class="grey-text text-lighten-4 right" href="#!">Terms & Privacy</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

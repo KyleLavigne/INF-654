@@ -1,114 +1,65 @@
-/* Define CSS variables for the color palette */
-:root {
-    --black: #090909ff;
-    --ebony: #4b5043ff;
-    --cambridge-blue: #9bc4bcff;
-    --nyanza: #d3ffe9ff;
-    --tiffany-blue: #FFD3E9;
+/* Reset and Fullscreen Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* General Styles */
+html, body {
+  display: flex;
+  flex: 1;
+  height: 100%; /* Ensure both html and body occupy the full height */
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--nyanza); /* Set a light background color */
-    color: var(--black); /* Dark text color */
-    margin: 0; /* Reset default margin */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  height: 100%; /* Full viewport height */
 }
 
-h1 {
-    margin-top: 30px;
-    color: var(--black); /* Dark color for headings */
+.place-picker-container {
+  padding: 20px;
 }
 
-/* Navbar Styles */
-.nav-wrapper {
-    background-color: var(--cambridge-blue); /* Navbar color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+gmp-map {
+  height: 100%;
 }
 
-.brand-logo img {
-    height: 64px; /* Set the logo height to match the navbar height */
-    width: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure it doesn’t exceed the width of its container */
+/* Navbar */
+nav {
+  box-shadow: none;
 }
 
-.nav-mobile {
-    display: flex; /* Aligns nav items horizontally */
-    align-items: center; /* Centers nav items vertically */
+nav .brand-logo {
+  font-size: 1.8rem;
 }
 
-.nav-wrapper a {
-    color: var(--black); /* Navbar link color */
-    display: flex; /* Ensures that link items are treated as flex items */
-    align-items: center; /* Vertically centers text in the links */
+.sidenav {
+  width: 250px;
 }
 
-.nav-wrapper a:hover {
-    color: var(--tiffany-blue); /* Change link color on hover */
+.container {
+  flex: 1; /* Grow to fill the space between navbar and footer */
 }
 
-/* Card Styles */
-.nav-link {
-    display: block; /* Make the anchor tag a block element */
-    padding: 15px; /* Add padding around the link */
-    text-decoration: none; /* Remove underline from links */
+footer {
+  flex-shrink: 0; /* Ensure footer does not shrink */
+  text-align: center;
+  background-color: teal;
+  color: white;
+  padding: 20px 0;
 }
 
-/* Card Styles */
-.card.horizontal {
-    display: flex; /* Use flex to align items in a row */
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--tiffany-blue);
-    transition: transform 0.3s ease;
-    min-height: 150px; /* Ensure a consistent minimum height */
-}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 200px;
+  }
 
-.card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
-}
-
-/* Image Styling for Half Width on Left */
-.card-image {
-    width: 50%; /* Take up half the card's width */
-    height: 100%; /* Make sure image fills card height */
-    overflow: hidden; /* Crop any overflow to keep a consistent layout */
-}
-
-.card-image img {
-    width: 100%; /* Make the image fill the container */
-    height: 100%; /* Keep the image filling the height as well */
-    object-fit: cover; /* Cover the container without distortion */
-}
-
-/* Card Content Styling */
-.card-content {
-    width: 50%; /* Take up the other half of the card */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.card-title {
-    margin: 0;
-    color: var(--black);
-    font-size: 3.0rem;
-    font-weight: bold;
-}
-
-.card-content p {
-    margin-top: 10px;
-    color: var(--ebony);
-    font-size: 1rem;
-}
-
-
-/* Responsive adjustments */
-@media only screen and (max-width: 600px) {
-    .brand-logo img {
-        height: 50px; /* Adjust height for mobile devices */
-    }
+  iframe {
+    width: 95%; /* Adjust iframe size for smaller screens */
+    height: 95%; /* Adjust iframe size for smaller screens */
+  }
 }
